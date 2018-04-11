@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Button} from 'react-bootstrap';
+import {Button, Modal} from 'react-bootstrap';
 import {Page, PageHeader, SearchForm, SearchItem, DataTable} from 'components';
 import rp from 'require-promise';
 import 'jquery-update-event';
@@ -13,6 +13,25 @@ const loader = Promise.all([
 ]);
 
 class WxaCodesIndex extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+
+    this.handleShow = this.handleShow.bind(this);
+    this.handleClose = this.handleClose.bind(this);
+
+    this.state = {
+      show: false
+    };
+  }
+
+  handleClose() {
+    this.setState({ show: false });
+  }
+
+  handleShow() {
+    this.setState({ show: true });
+  }
+
   componentDidMount() {
     loader.then(() => {
       const $table = $('.js-wxa-code-table').dataTable({
@@ -63,12 +82,12 @@ class WxaCodesIndex extends React.Component {
             data: 'id',
             createdCell: (td, val) => {
               ReactDOM.render(<span>
+                <a className="js-show-image" href="javascript:" data-id={val}>查看</a>
+                {' '}
                 <a href={$.url('admin/wxa-codes/%s/edit', val)}>修改</a>
                 {' '}
                 <a className="js-delete-record text-danger" href="javascript:"
-                  data-href={$.url('admin/wxa-codes/%s/destroy', val)}>
-                  删除
-                </a>
+                  data-href={$.url('admin/wxa-codes/%s/destroy', val)}>删除</a>
               </span>, td);
             }
           }
@@ -76,6 +95,14 @@ class WxaCodesIndex extends React.Component {
       });
 
       $table.deletable();
+
+      var that = this;
+      $table.on('click', '.js-show-image', function () {
+        var url = $.url('admin/wxa-codes/%s/show-image', $(this).data('id'));
+        that.handleShow();
+        $('.js-wxa-code-image').attr('src', url);
+        $('.js-wxa-code-download').attr('href', url + '?download=1');
+      });
     });
   }
 
@@ -94,6 +121,19 @@ class WxaCodesIndex extends React.Component {
         </SearchForm>
 
         <DataTable className="js-wxa-code-table"/>
+
+        <Modal show={this.state.show} onHide={this.handleClose}>
+          <Modal.Header closeButton>
+            <Modal.Title>查看小程序码</Modal.Title>
+          </Modal.Header>
+          <Modal.Body className="text-center">
+            <img className="js-wxa-code-image" src=""/>
+          </Modal.Body>
+          <Modal.Footer>
+            <a className="js-wxa-code-download btn btn-default">下载</a>
+            <Button onClick={this.handleClose}>关闭</Button>
+          </Modal.Footer>
+        </Modal>
       </Page>
     )
   }

@@ -23,7 +23,6 @@ namespace Miaoxing\WxaCode\Metadata;
  * @property int $updatedBy
  * @property string $deletedAt
  * @property int $deletedBy
- * @property  $width
  */
 trait WxaCodeTrait
 {
