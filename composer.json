@@ -1,0 +1,26 @@
+{
+  "name": "miaoxing/wxa-code",
+  "description": "Miaoxing Wxa Code Plugin",
+  "keywords": [
+    "miaoxing", "wxa", "code"
+  ],
+  "license": "MIT",
+  "require": {
+    "miaoxing/app": "dev-master@dev"
+  },
+  "require-dev": {
+    "miaoxing/coding-standards": "^2.0.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Miaoxing\\WxaCode\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "MiaoxingTest\\WxaCode\\": "tests"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
