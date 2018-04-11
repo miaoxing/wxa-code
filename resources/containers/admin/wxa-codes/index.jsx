@@ -35,17 +35,25 @@ class WxaCodesIndex extends React.Component {
             title: '宽度',
             data: 'width',
           },
-          {
+          /*{
             title: '自动配置线条颜色',
             data: 'autoColor',
             render: function (data) {
               return data ? '是' : '否';
             }
           },
-          /*{
+          {
             title: '颜色',
             data: 'lineColor'
           },*/
+          {
+            title: '扫描次数',
+            data: 'scanCount'
+          },
+          {
+            title: '扫描人数',
+            data: 'scanUser'
+          },
           {
             title: '创建时间',
             data: 'createdAt'
