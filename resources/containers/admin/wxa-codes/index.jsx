@@ -2,14 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Button, Modal} from 'react-bootstrap';
 import {Page, PageHeader, SearchForm, SearchItem, DataTable} from 'components';
-import rp from 'require-promise';
 import 'jquery-update-event';
-import bootbox from 'comps/bootbox/bootbox';
 
 const loader = Promise.all([
   import('query-url'),
-  import('datatables-net-mx'),
-  rp('daterangepicker'),
+  import('datatables-net-mx')
 ]);
 
 class WxaCodesIndex extends React.Component {
