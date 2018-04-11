@@ -27,7 +27,7 @@ class WxaCodes extends BaseController
 
     public function showImageAction($req)
     {
-        $wxaCode = wei()->wxaCodeModel()->findOneById($req['id']);
+        $wxaCode = wei()->wxaCodeModel()->findOrInit(['path' => $req['path']]);
 
         $account = wei()->wechatAccount->getCurrentAccount();
         $api = $account->createApiService();
