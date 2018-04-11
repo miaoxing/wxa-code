@@ -13,7 +13,7 @@
         <img class="js-wxa-code-image" src="">
       </div>
       <div class="modal-footer">
-        <a class="js-wxa-code-download btn btn-default">下载</a>
+        <a class="js-wxa-code-download btn btn-success">下载</a>
         <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
       </div>
     </div>
