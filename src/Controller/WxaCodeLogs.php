@@ -7,15 +7,28 @@ use Miaoxing\WxaCode\Service\WxaCodeModel;
 
 class WxaCodeLogs extends BaseController
 {
+    public $guestPages = [
+        'wxaCodeLogs'
+    ];
+
     public function createAction($req)
     {
+        $data = $this->request->getData();
+        $data += (array) json_decode($this->request->getContent(), true);
+        $this->request->fromArray($data);
+
         $wxaCode = wei()->wxaCodeModel()->find(['path' => $req['path']]);
         if (!$wxaCode) {
             return $this->err('小程序码不存在');
         }
 
+        $user = wei()->user()->find(['wechatOpenId' => $req['wechatOpenId']]);
+        if (!$user) {
+            return $this->err('用户不存在');
+        }
+
         $log = wei()->wxaCodeLogModel()->find([
-            'user_id' => $this->curUser['id'],
+            'user_id' => $user['id'],
             'code_id' => $wxaCode->id,
         ]);
 
@@ -27,7 +40,7 @@ class WxaCodeLogs extends BaseController
 
         $wxaCode->save();
         wei()->wxaCodeLogModel()->save([
-            'user_id' => $this->curUser['id'],
+            'user_id' => $user['id'],
             'code_id' => $wxaCode->id,
         ]);
 
