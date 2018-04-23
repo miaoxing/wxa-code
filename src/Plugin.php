@@ -11,6 +11,8 @@ class Plugin extends BasePlugin
      */
     protected $name = '小程序码';
 
+    protected $adminNavId = 'wechat';
+
     public function onAdminNavGetNavs(&$navs, &$categories, &$subCategories)
     {
         $navs[] = [
