@@ -19,7 +19,9 @@ class WxaCodeLogs extends BaseController
 
         $this->logger->info('上报小程序onShow', $this->request->getContent());
 
-        $wxaCode = wei()->wxaCodeModel()->find(['path' => $req['path']]);
+        // 统一使用绝对的路径
+        $path = '/' . $req['path'];
+        $wxaCode = wei()->wxaCodeModel()->find(['path' => $path]);
         if (!$wxaCode) {
             return $this->err('小程序码不存在');
         }
