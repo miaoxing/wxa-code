@@ -8,7 +8,7 @@ use Miaoxing\WxaCode\Service\WxaCodeModel;
 class WxaCodeLogs extends BaseController
 {
     public $guestPages = [
-        'wxaCodeLogs'
+        'wxaCodeLogs',
     ];
 
     public function createAction($req)
@@ -16,6 +16,8 @@ class WxaCodeLogs extends BaseController
         $data = $this->request->getData();
         $data += (array) json_decode($this->request->getContent(), true);
         $this->request->fromArray($data);
+
+        $this->logger->info('上报小程序onShow', $this->request->getContent());
 
         $wxaCode = wei()->wxaCodeModel()->find(['path' => $req['path']]);
         if (!$wxaCode) {
