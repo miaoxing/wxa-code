@@ -37,7 +37,7 @@ class WxaCodeLogs extends BaseController
         foreach ($req['query'] as $key => $value) {
             $data[$key] = urldecode($value);
         }
-        $path = $this->url->append('/' . $req['path'], $data);
+        $path = $this->url->append('/' . ltrim($req['path'], '/'), $data);
         $wxaCode = wei()->wxaCodeModel()->find(['path' => $path]);
         if (!$wxaCode) {
             return $this->err('小程序码不存在' . $path);
