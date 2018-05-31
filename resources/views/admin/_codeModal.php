@@ -10,7 +10,7 @@
         <h4 class="modal-title" id="wxa-code-modal-label">查看小程序码</h4>
       </div>
       <div class="modal-body text-center">
-        <img class="js-wxa-code-image" src="">
+        <img class="js-wxa-code-image img-max" src="">
       </div>
       <div class="modal-footer">
         <a class="js-wxa-code-download btn btn-success">下载</a>
