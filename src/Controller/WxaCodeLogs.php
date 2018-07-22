@@ -40,7 +40,7 @@ class WxaCodeLogs extends BaseController
         $path = $this->url->append('/' . ltrim($req['path'], '/'), $data);
         $wxaCode = wei()->wxaCodeModel()->find(['path' => $path]);
         if (!$wxaCode) {
-            return $this->err('小程序码不存在' . $path);
+            return $this->err(['小程序码不存在:%s', $path]);
         }
 
         $user = wei()->user()->find(['wechatOpenId' => $req['wechatOpenId']]);
