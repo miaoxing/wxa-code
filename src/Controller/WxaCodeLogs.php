@@ -54,9 +54,9 @@ class WxaCodeLogs extends BaseController
         ]);
 
         /** @var WxaCodeModel $wxaCode */
-        $wxaCode->incr('scan_count', 1);
+        $wxaCode->incr('scan_count');
         if (!$log) {
-            $wxaCode->incr('scan_user', 1);
+            $wxaCode->incr('scan_user');
         }
 
         $wxaCode->save();
