@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Button, Modal} from 'react-bootstrap';
-import {Page, PageHeader, SearchForm, SearchItem, DataTable} from 'components';
+import {Button} from 'react-bootstrap';
+import {DataTable, Page, PageHeader, SearchForm2, SearchItem} from 'components';
 import 'jquery-update-event';
 
 const loader = Promise.all([
@@ -91,12 +91,12 @@ class WxaCodesIndex extends React.Component {
           <Button bsStyle="success" href={$.url('admin/wxa-codes/new')}>添加小程序码</Button>
         </PageHeader>
 
-        <SearchForm className="js-wxa-code-form">
+        <SearchForm2 className="js-wxa-code-form">
 
           <SearchItem label="名字" name="name"/>
 
           <SearchItem label="路径" name="path"/>
-        </SearchForm>
+        </SearchForm2>
 
         <DataTable className="js-wxa-code-table"/>
       </Page>
