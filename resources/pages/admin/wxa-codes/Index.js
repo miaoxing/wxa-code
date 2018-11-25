@@ -82,6 +82,13 @@ class WxaCodesIndex extends React.Component {
         $('.js-wxa-code-download').attr('href', url + '?download=1');
       });
     });
+
+    $('body').on('click', '.js-wxa-code-show', function () {
+      var url = $.url('admin/wxa-codes/show-image', {path: $(this).data('path')});
+      $('.js-wxa-code-image').attr('src', url);
+      $('.js-wxa-code-download').attr('href', $.appendUrl(url, {download: 1}));
+      $('.js-wxa-code-modal').modal('show');
+    });
   }
 
   render() {
@@ -99,6 +106,27 @@ class WxaCodesIndex extends React.Component {
         </SearchForm>
 
         <DataTable className="js-wxa-code-table"/>
+
+        <div className="js-wxa-code-modal modal fade" tabIndex="-1" role="dialog" aria-labelledby="wxa-code-modal-label"
+          aria-hidden="true">
+          <div className="modal-dialog">
+            <div className="modal-content">
+              <div className="modal-header">
+                <button type="button" className="close" data-dismiss="modal">
+                  <span aria-hidden="true">&times;</span><span className="sr-only">Close</span>
+                </button>
+                <h4 className="modal-title" id="wxa-code-modal-label">查看小程序码</h4>
+              </div>
+              <div className="modal-body text-center">
+                <img className="js-wxa-code-image img-max"/>
+              </div>
+              <div className="modal-footer">
+                <a className="js-wxa-code-download btn btn-success">下载</a>
+                <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </Page>
     )
   }
