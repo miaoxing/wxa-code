@@ -10,7 +10,7 @@
         </button>
       </div>
       <div class="modal-body text-center">
-        <img class="js-wxa-code-image img-max" src="">
+        <img class="js-wxa-code-image img-fluid" src="">
       </div>
       <div class="modal-footer">
         <a class="js-wxa-code-download btn btn-success">下载</a>

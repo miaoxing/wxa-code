@@ -118,7 +118,7 @@ class WxaCodesIndex extends React.Component {
                 <h4 className="modal-title" id="wxa-code-modal-label">查看小程序码</h4>
               </div>
               <div className="modal-body text-center">
-                <img className="js-wxa-code-image img-max"/>
+                <img className="js-wxa-code-image img-fluid"/>
               </div>
               <div className="modal-footer">
                 <a className="js-wxa-code-download btn btn-success">下载</a>
