@@ -95,7 +95,7 @@ class WxaCodesIndex extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <Button bsStyle="success" href={$.url('admin/wxa-codes/new')}>添加小程序码</Button>
+          <Button variant="success" href={$.url('admin/wxa-codes/new')}>添加小程序码</Button>
         </PageHeader>
 
         <SearchForm className="js-wxa-code-form">
