@@ -1,11 +1,12 @@
 import React from 'react';
 import {Button, Form} from 'react-bootstrap';
 import {FormAction, FormItem, Page, PageHeader} from 'components';
+import rp from "require-promise";
 
 const loader = Promise.all([
   import('jquery-populate'),
   import('jquery-form'),
-  import('jquery-validation-mx'),
+  rp('plugins/app/js/validation'),
   import('bootstrap-maxlength-mx')
 ]);
 
