@@ -37,7 +37,7 @@ class WxaCodesForm extends React.Component {
     return (
       <Page>
         <PageHeader>
-          <Button href={$.url('admin/wxa-codes')}>返回列表</Button>
+          <Button variant="secondary" href={$.url('admin/wxa-codes')}>返回列表</Button>
         </PageHeader>
         <Form className="js-wxa-code-form" method="post">
           <FormItem label="名称" className="js-maxlength" name="name" data-rule-maxlength={16} />
