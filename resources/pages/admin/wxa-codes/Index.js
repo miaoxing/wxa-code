@@ -122,7 +122,7 @@ class WxaCodesIndex extends React.Component {
               </div>
               <div className="modal-footer">
                 <a className="js-wxa-code-download btn btn-success">下载</a>
-                <button type="button" className="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">关闭</button>
               </div>
             </div>
           </div>
