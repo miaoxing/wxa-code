@@ -112,10 +112,10 @@ class WxaCodesIndex extends React.Component {
           <div className="modal-dialog">
             <div className="modal-content">
               <div className="modal-header">
+                <h5 className="modal-title" id="wxa-code-modal-label">查看小程序码</h5>
                 <button type="button" className="close" data-dismiss="modal">
                   <span aria-hidden="true">&times;</span><span className="sr-only">Close</span>
                 </button>
-                <h4 className="modal-title" id="wxa-code-modal-label">查看小程序码</h4>
               </div>
               <div className="modal-body text-center">
                 <img className="js-wxa-code-image img-fluid"/>
