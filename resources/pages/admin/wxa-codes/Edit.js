@@ -5,7 +5,7 @@ import rp from "require-promise";
 
 const loader = Promise.all([
   import('jquery-populate'),
-  import('plugins/app/libs/jquery-form/jquery.form'),
+  import('public/plugins/app/libs/jquery-form/jquery.form'),
   rp('plugins/app/js/validation'),
   import('bootstrap-maxlength-mx')
 ]);
